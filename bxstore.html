@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090914">
+  <title>BXSTORE — Digital Gaming Store</title>
+  <style>
+    :root{--bg:#090914;--panel:#121225;--panel2:#191932;--text:#f5f4ff;--muted:#aaa8c5;--purple:#9b5cff;--blue:#39c6ff;--line:#292744;--good:#72e6b1}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse at 80% -10%,#282052 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+    a{color:inherit;text-decoration:none} button,input,select,textarea{font:inherit}
+    .wrap{width:min(1100px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:5;background:#090914eF;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    .nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{font-weight:950;letter-spacing:1.5px;font-size:1.35rem}.brand span{color:var(--blue)}
+    .navlinks{display:flex;align-items:center;gap:18px;color:var(--muted);font-size:.93rem}
+    .btn{border:0;border-radius:12px;padding:11px 16px;background:linear-gradient(110deg,var(--purple),#625cff);color:white;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+    .btn.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}
+    .btn:active{transform:scale(.98)}
+    .hero{padding:72px 0 48px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:30px}
+    .eyebrow{color:var(--blue);font-size:.8rem;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+    h1{font-size:clamp(2.5rem,7vw,4.7rem);line-height:1.02;letter-spacing:-2px;margin:12px 0 18px}
+    h1 em{font-style:normal;background:linear-gradient(90deg,var(--purple),var(--blue));background-clip:text;color:transparent}
+    .hero p{color:var(--muted);max-width:570px}
+    .hero-art{min-height:240px;border:1px solid #38315e;border-radius:28px;background:linear-gradient(145deg,#211747,#10172b 65%,#10283b);display:grid;place-items:center;box-shadow:0 20px 80px #5d39a52b}
+    .hero-art .orb{width:155px;height:155px;border-radius:40px;display:grid;place-items:center;font-size:4rem;transform:rotate(-9deg);background:linear-gradient(145deg,#a15cff,#347dff);box-shadow:0 0 65px #865cff88}
+    section{padding:28px 0 48px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:18px}
+    h2{font-size:1.65rem;margin:0}.sub{color:var(--muted);margin:5px 0 0;font-size:.93rem}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+    .chip{border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:999px;padding:8px 13px;cursor:pointer}
+    .chip.active{background:#34245c;color:white;border-color:#7652bd}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .product{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:17px;display:flex;flex-direction:column;min-height:235px}
+    .product .emoji{height:75px;border-radius:13px;background:linear-gradient(135deg,#302052,#152e47);display:grid;place-items:center;font-size:2.3rem;margin-bottom:14px}
+    .tag{font-size:.72rem;color:var(--blue);font-weight:800;text-transform:uppercase;letter-spacing:1px}
+    .product h3{margin:5px 0;font-size:1.05rem}.product p{color:var(--muted);font-size:.87rem;margin:0 0 14px}
+    .product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto}
+    .price{font-weight:900;font-size:1.05rem}.small{font-size:.78rem;color:var(--muted)}
+    .notice{border:1px solid #3c3264;background:#17152b;border-radius:15px;padding:15px;color:var(--muted);font-size:.9rem}
+    .notice strong{color:var(--text)}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
+    label{display:block;font-size:.88rem;color:var(--muted);margin:12px 0 6px}
+    input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:#0c0c19;color:var(--text);outline:none}
+    input:focus,textarea:focus,select:focus{border-color:var(--purple)}
+    .cart-line{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+    .qty{display:flex;align-items:center;gap:8px}.qty button{background:var(--panel2);color:white;border:1px solid var(--line);border-radius:7px;width:27px;height:27px}
+    .empty{color:var(--muted);padding:18px 0}
+    footer{border-top:1px solid var(--line);padding:25px 0 40px;color:var(--muted);font-size:.85rem}
+    .mobile-cart{display:none}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:48px}.hero-art{min-height:190px}.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.navlinks{gap:10px}.navlinks a:first-child{display:none}}
+    @media(max-width:440px){.grid{grid-template-columns:1fr 1fr;gap:9px}.product{padding:11px;min-height:250px}.product .emoji{height:62px}.product .btn{padding:9px;font-size:.82rem}.navlinks{font-size:.82rem}.brand{font-size:1.15rem}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">BX<span>STORE</span></a>
+    <nav class="navlinks"><a href="#products">Products</a><a href="#how">How it works</a><a href="#checkout">Checkout</a></nav>
+    <a class="btn secondary" href="#checkout">Cart <span id="cartCount">0</span></a>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Your digital gaming shop</div>
+      <h1>Level up your<br><em>digital world.</em></h1>
+      <p>Browse gaming top-ups, gift cards and digital goodies. Simple ordering, clear prices, and friendly support.</p>
+      <a class="btn" href="#products">Explore products <span>↗</span></a>
+    </div>
+    <div class="hero-art" aria-label="Gaming inspired graphic"><div class="orb">🎮</div></div>
+  </div>
+
+  <section id="products">
+    <div class="section-head"><div><h2>Featured products</h2><p class="sub">Demo products — replace these with your real offers.</p></div></div>
+    <div class="chips" id="filters">
+      <button class="chip active" data-filter="All">All</button>
+      <button class="chip" data-filter="Game top-ups">Game top-ups</button>
+      <button class="chip" data-filter="Gift cards">Gift cards</button>
+      <button class="chip" data-filter="Digital goods">Digital goods</button>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </section>
+
+  <section id="how">
+    <div class="section-head"><div><h2>How ordering works</h2><p class="sub">A simple manual-order demo for the first version.</p></div></div>
+    <div class="two">
+      <div class="panel"><h3>1. Choose your product</h3><p class="sub">Add the items you want to your cart and check the total.</p></div>
+      <div class="panel"><h3>2. Send an order request</h3><p class="sub">Submit your contact details. We'll show you an order summary to send to the store.</p></div>
+    </div>
+    <p class="notice" style="margin-top:15px"><strong>Payment note:</strong> ShamCash is not connected to this demo. Never mark an order paid until the payment is independently confirmed. Add only an official, verified payment method after checking its business requirements.</p>
+  </section>
+
+  <section id="checkout">
+    <div class="section-head"><div><h2>Your cart & checkout</h2><p class="sub">This version creates an order message; it does not collect money.</p></div></div>
+    <div class="two">
+      <div class="panel">
+        <h3>Cart</h3>
+        <div id="cartItems"><div class="empty">Your cart is empty. Add something from the products above.</div></div>
+        <div class="cart-line"><strong>Total</strong><strong id="total">$0.00</strong></div>
+      </div>
+      <form class="panel" id="orderForm">
+        <h3>Order details</h3>
+        <label for="customer">Your name</label><input id="customer" required maxlength="60" placeholder="Name">
+        <label for="contact">Contact method / username</label><input id="contact" required maxlength="100" placeholder="Telegram username or other contact">
+        <label for="notes">Order notes (optional)</label><textarea id="notes" rows="3" maxlength="500" placeholder="Game ID, server, product details..."></textarea>
+        <button class="btn" style="width:100%;margin-top:15px" type="submit">Create order message</button>
+        <p class="small">Don't enter passwords, login codes, or sensitive account information.</p>
+        <div id="orderResult" class="notice" hidden aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© <span id="year"></span> BXSTORE. Independent digital shop demo. Product names and prices are examples only.</div></footer>
+
+<script>
+  // EDIT THESE SAMPLE PRODUCTS AND PRICES BEFORE PUBLISHING.
+  const products = [
+    {id:1,name:"Game Top-up — Small",category:"Game top-ups",price:3.00,emoji:"💎",desc:"Example listing. Replace with an authorized game top-up."},
+    {id:2,name:"Game Top-up — Medium",category:"Game top-ups",price:7.00,emoji:"⚡",desc:"Example listing. Confirm delivery terms before selling."},
+    {id:3,name:"Game Top-up — Large",category:"Game top-ups",price:15.00,emoji:"🔥",desc:"Example listing. Use only official or authorized sources."},
+    {id:4,name:"Gaming Gift Card",category:"Gift cards",price:5.00,emoji:"🎁",desc:"Example listing. Specify region and currency clearly."},
+    {id:5,name:"Digital Game Code",category:"Digital goods",price:8.00,emoji:"🕹️",desc:"Example listing. Sell only legitimate, unused codes."},
+    {id:6,name:"Gaming Bundle",category:"Digital goods",price:12.00,emoji:"🚀",desc:"Example listing. Replace with your actual bundle."}
+  ];
+  const cart = {};
+  const money = n => "$" + n.toFixed(2);
+  const grid = document.getElementById("productGrid");
+  let activeFilter = "All";
+
+  function renderProducts(){
+    grid.innerHTML = "";
+    products.filter(p => activeFilter === "All" || p.category === activeFilter).forEach(p => {
+      const card = document.createElement("article");
+      card.className = "product";
+      card.innerHTML = `<div class="emoji">${p.emoji}</div><div class="tag">${p.category}</div><h3></h3><p></p><div class="product-bottom"><span class="price">${money(p.price)}</span><button class="btn add" data-id="${p.id}">Add +</button></div>`;
+      card.querySelector("h3").textContent = p.name;
+      card.querySelector("p").textContent = p.desc;
+      grid.appendChild(card);
+    });
+  }
+  function renderCart(){
+    const area = document.getElementById("cartItems");
+    const entries = Object.entries(cart).filter(([,q]) => q > 0);
+    area.innerHTML = "";
+    if(!entries.length){area.innerHTML='<div class="empty">Your cart is empty. Add something from the products above.</div>';}
+    let total = 0, count = 0;
+    entries.forEach(([id,q]) => {
+      const p = products.find(x => x.id === Number(id)); if(!p) return;
+      total += p.price*q; count += q;
+      const line = document.createElement("div"); line.className = "cart-line";
+      const left = document.createElement("div"); left.innerHTML = `<strong></strong><div class="small">${money(p.price)} each</div>`; left.querySelector("strong").textContent = p.name;
+      const right = document.createElement("div"); right.className = "qty";
+      const minus = document.createElement("button"); minus.textContent = "−"; minus.setAttribute("aria-label","Remove one");
+      const qty = document.createElement("span"); qty.textContent = q;
+      const plus = document.createElement("button"); plus.textContent = "+"; plus.setAttribute("aria-label","Add one");
+      minus.onclick = () => {cart[id]--;renderCart();}; plus.onclick = () => {cart[id]++;renderCart();};
+      right.append(minus,qty,plus); line.append(left,right); area.appendChild(line);
+    });
+    document.getElementById("total").textContent = money(total);
+    document.getElementById("cartCount").textContent = count;
+  }
+  grid.addEventListener("click", e => {const b=e.target.closest(".add");if(!b)return;const id=b.dataset.id;cart[id]=(cart[id]||0)+1;renderCart();b.textContent="Added ✓";setTimeout(()=>b.textContent="Add +",800);});
+  document.getElementById("filters").addEventListener("click",e=>{const b=e.target.closest("[data-filter]");if(!b)return;activeFilter=b.dataset.filter;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===b));renderProducts();});
+  document.getElementById("orderForm").addEventListener("submit",e=>{
+    e.preventDefault();
+    const entries=Object.entries(cart).filter(([,q])=>q>0);
+    const result=document.getElementById("orderResult");
+    if(!entries.length){result.hidden=false;result.textContent="Add at least one product to your cart first.";return;}
+    const name=document.getElementById("customer").value.trim();
+    const contact=document.getElementById("contact").value.trim();
+    const notes=document.getElementById("notes").value.trim();
+    const lines=entries.map(([id,q])=>{const p=products.find(x=>x.id===Number(id));return `${p.name} x${q} — ${money(p.price*q)}`;});
+    const total=entries.reduce((sum,[id,q])=>sum+products.find(x=>x.id===Number(id)).price*q,0);
+    const message=`BXSTORE ORDER REQUEST\nName: ${name}\nContact: ${contact}\n\n${lines.join("\n")}\n\nTotal: ${money(total)}\nNotes: ${notes||"None"}\n\nPlease confirm availability and payment instructions.`;
+    result.hidden=false;result.innerHTML="";
+    const title=document.createElement("strong");title.textContent="Order message ready";
+    const p=document.createElement("p");p.textContent="Copy this message and send it to the store through your published support contact.";
+    const pre=document.createElement("textarea");pre.readOnly=true;pre.rows=8;pre.value=message;
+    const copy=document.createElement("button");copy.className="btn";copy.type="button";copy.textContent="Copy order message";
+    copy.onclick=async()=>{try{await navigator.clipboard.writeText(message);copy.textContent="Copied ✓";}catch{pre.select();document.execCommand("copy");copy.textContent="Copy selected text";}};
+    result.append(title,p,pre,copy);
+  });
+  document.getElementById("year").textContent=new Date().getFullYear();
+  renderProducts();renderCart();
+</script>
+</body>
+</html>
