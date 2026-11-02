@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090914">
+<title>BXSTORE | متجر شحن الألعاب</title>
+<style>
+:root{--bg:#090914;--card:#17132a;--line:#38245d;--purple:#922cff;--violet:#673bff;--text:#faf7ff;--muted:#c0b7d5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#35205c 0,transparent 48%),var(--bg);color:var(--text);font:16px/1.8 system-ui,Arial,sans-serif}
+.wrap{width:min(1100px,92%);margin:auto}a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:5;background:#090914ed;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:12px}.logo{font-size:1.5rem;font-weight:1000;direction:ltr;letter-spacing:1px}.logo span{color:#b66aff}.links{display:flex;gap:18px;color:var(--muted);font-size:.93rem}
+.btn{border:0;border-radius:12px;padding:11px 17px;background:linear-gradient(110deg,var(--purple),var(--violet));color:white;font:inherit;font-weight:850;cursor:pointer;display:inline-flex;justify-content:center;align-items:center;gap:7px}.secondary{background:#21183b;border:1px solid var(--line)}
+.hero{padding:44px 0 30px;display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}.tag{color:#c38aff;font-weight:900}.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.25;margin:10px 0}.hero h1 span{color:#b66aff}.muted{color:var(--muted)}
+.art{border:1px solid #673ba0;border-radius:24px;overflow:hidden;background:linear-gradient(145deg,#29164b,#101426);box-shadow:0 18px 60px #832aff30}.art svg{display:block;width:100%;height:auto}.art-caption{text-align:center;padding:14px}.art-caption b{font-size:1.4rem}.art-caption strong{color:#d8b4ff}
+section{padding:25px 0 38px}.section-head{margin-bottom:18px}.section-head h2{margin:0;font-size:1.7rem}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.product,.panel{background:linear-gradient(150deg,#21183b,var(--card));border:1px solid var(--line);border-radius:18px;padding:17px}.product{text-align:center}.gem{font-size:2.6rem}.product h3{margin:5px 0}.price{font-size:1.4rem;font-weight:950;color:#d8b4ff;direction:ltr}.product p{color:var(--muted);font-size:.9rem;margin:4px 0 13px}.product .btn{width:100%}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.info{text-align:center;color:var(--muted)}.info b{display:block;color:white}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.notice{border:1px solid #593681;background:#1c1530;border-radius:13px;padding:13px;color:var(--muted)}
+.line{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}.qty{display:flex;align-items:center;gap:8px}.qty button{background:#281d43;color:white;border:1px solid var(--line);border-radius:7px;width:29px;height:29px}
+label{display:block;color:var(--muted);margin:9px 0 4px}input,textarea{width:100%;padding:11px;border-radius:10px;border:1px solid var(--line);background:#0d0c19;color:white;font:inherit}footer{border-top:1px solid var(--line);padding:25px 0;text-align:center;color:var(--muted)}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}.links{gap:9px;font-size:.82rem}.logo{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav><a class="logo" href="#">BX<span>STORE</span></a><div class="links"><a href="#products">الباقات</a><a href="#steps">طريقة الطلب</a><a href="#cart">السلة (<span id="count">0</span>)</a></div><a class="btn secondary" href="#cart">سلة المشتريات</a></nav></div></header>
+<main class="wrap">
+<section class="hero">
+<div><div class="tag">مرحباً بك في BXSTORE</div><h1>اشحن شدات ببجي<br><span>بسهولة وبسعر واضح</span></h1><p class="muted">اختر باقة الشدات المناسبة لك، أضفها إلى السلة، ثم جهّز رسالة طلبك خلال ثوانٍ.</p><a class="btn" href="#products">تصفح الباقات ←</a></div>
+<div class="art" aria-label="تصميم ترويجي لشحن شدات ببجي"><svg viewBox="0 0 720 440" role="img" aria-labelledby="title desc"><title id="title">BXSTORE PUBG UC</title><desc id="desc">تصميم بنفسجي ترويجي لشحن شدات ببجي</desc>
+<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#a33cff"/><stop offset="1" stop-color="#4520a8"/></linearGradient><radialGradient id="glow"><stop stop-color="#c58cff" stop-opacity=".75"/><stop offset="1" stop-color="#8c32ff" stop-opacity="0"/></radialGradient></defs>
+<circle cx="570" cy="150" r="180" fill="url(#glow)"/><circle cx="110" cy="350" r="150" fill="url(#glow)" opacity=".5"/>
+<path d="M0 360 Q170 260 320 360 T720 330 V440 H0Z" fill="#0a0b19" opacity=".8"/>
+<g transform="translate(475 80)"><path d="M0 55 L55 0 L110 55 L55 110Z" fill="url(#g)" stroke="#e4caff" stroke-width="5"/><path d="M55 0V110M0 55H110" stroke="#e4caff" stroke-width="3" opacity=".65"/><path d="M55 18L91 55L55 92L19 55Z" fill="#d7aaff" opacity=".55"/></g>
+<g fill="#fff" opacity=".8"><circle cx="400" cy="65" r="5"/><circle cx="650" cy="270" r="7"/><circle cx="345" cy="205" r="4"/><path d="M90 75l8 18 18 8-18 8-8 18-8-18-18-8 18-8z"/></g>
+<text x="360" y="145" fill="#c99aff" font-size="26" font-weight="bold" text-anchor="middle" direction="rtl">متجر شحن الألعاب</text>
+<text x="360" y="220" fill="#fff" font-size="62" font-weight="1000" text-anchor="middle">PUBG MOBILE</text>
+<text x="360" y="292" fill="#fff" font-size="54" font-weight="1000" text-anchor="middle">$1 = 60 UC</text>
+<rect x="225" y="330" width="270" height="54" rx="27" fill="url(#g)" stroke="#d9b8ff" stroke-width="2"/><text x="360" y="366" fill="#fff" font-size="25" font-weight="bold" text-anchor="middle" direction="rtl">اطلب الآن من BXSTORE</text>
+</svg><div class="art-caption"><b>كل 60 UC بدولار واحد</b><br><strong>BXSTORE • شحن الألعاب</strong></div></div>
+</section>
+<div class="info-grid"><div class="panel info">⚡<b>طلب سهل</b>جهّز طلبك بسرعة</div><div class="panel info">💜<b>أسعار واضحة</b>دولار لكل 60 UC</div><div class="panel info">🛡️<b>تأكيد قبل الدفع</b>راجع التفاصيل أولاً</div></div>
+<section id="products"><div class="section-head"><h2>باقات شدات ببجي</h2><div class="muted">السعر: 1 دولار لكل 60 UC</div></div><div class="grid" id="productsGrid"></div></section>
+<section id="steps"><div class="section-head"><h2>طريقة الطلب</h2></div><div class="two"><div class="panel"><h3>١. اختر الباقة</h3><p class="muted">أضف باقة الشدات التي تريدها إلى سلة المشتريات.</p></div><div class="panel"><h3>٢. أرسل التفاصيل</h3><p class="muted">اكتب وسيلة التواصل ومعرّف اللاعب (Player ID)، ثم انسخ رسالة الطلب.</p></div></div><p class="notice">تنبيه: الموقع لا يستقبل المدفوعات حالياً ولا يتصل تلقائياً بـ ShamCash. لا ترسل كلمة المرور أو رمز التحقق لأي شخص، وتأكد من تفاصيل الطلب والدفع مع ولي أمرك قبل الشراء.</p></section>
+<section id="cart"><div class="section-head"><h2>سلة المشتريات</h2></div><div class="two"><div class="panel"><h3>طلبك</h3><div id="cartItems" class="muted">السلة فارغة حالياً.</div><div class="line"><b>المجموع</b><b id="total">$0.00</b></div></div>
+<form class="panel" id="order"><h3>بيانات الطلب</h3><label for="name">الاسم</label><input id="name" required maxlength="60" placeholder="اكتب اسمك"><label for="contact">وسيلة التواصل</label><input id="contact" required maxlength="100" placeholder="اسم المستخدم أو وسيلة التواصل"><label for="player">معرّف اللاعب أو ملاحظات</label><textarea id="player" rows="3" maxlength="400" placeholder="Player ID"></textarea><button class="btn" style="width:100%;margin-top:12px">إنشاء رسالة الطلب</button><div id="result" class="notice" hidden style="margin-top:12px"></div></form></div></section>
+</main><footer>© <span id="year"></span> BXSTORE — جميع الحقوق محفوظة</footer>
+<script>
+const products=[{id:1,uc:60,price:1},{id:2,uc:120,price:2},{id:3,uc:180,price:3},{id:4,uc:300,price:5},{id:5,uc:360,price:6},{id:6,uc:600,price:10},{id:7,uc:720,price:12},{id:8,uc:1200,price:20}];
+const cart={};const fmt=n=>"$"+n.toFixed(2);const grid=document.getElementById("productsGrid");
+products.forEach(p=>{const el=document.createElement("article");el.className="product";el.innerHTML='<div class="gem">💎</div><h3>'+p.uc+' UC</h3><p>شدات ببجي موبايل</p><div class="price">'+fmt(p.price)+'</div><button class="btn add" data-id="'+p.id+'">أضف إلى السلة +</button>';grid.appendChild(el)});
+function draw(){const area=document.getElementById("cartItems");area.innerHTML="";let sum=0,count=0;Object.entries(cart).forEach(([id,q])=>{if(!q)return;const p=products.find(x=>x.id===+id);sum+=p.price*q;count+=q;const row=document.createElement("div");row.className="line";const name=document.createElement("b");name.textContent=p.uc+" UC × "+q;const controls=document.createElement("div");controls.className="qty";for(const [label,delta] of [["−",-1],["+",1]]){const b=document.createElement("button");b.type="button";b.textContent=label;b.onclick=()=>{cart[id]+=delta;if(cart[id]<=0)delete cart[id];draw()};controls.appendChild(b)}row.append(name,controls);area.appendChild(row)});if(!count)area.textContent="السلة فارغة حالياً.";document.getElementById("total").textContent=fmt(sum);document.getElementById("count").textContent=count}
+grid.addEventListener("click",e=>{const b=e.target.closest(".add");if(!b)return;const id=b.dataset.id;cart[id]=(cart[id]||0)+1;draw();const old=b.textContent;b.textContent="تمت الإضافة ✓";setTimeout(()=>b.textContent=old,800)});
+document.getElementById("order").addEventListener("submit",e=>{e.preventDefault();const entries=Object.entries(cart).filter(([,q])=>q>0);const out=document.getElementById("result");out.hidden=false;if(!entries.length){out.textContent="أضف باقة إلى السلة أولاً.";return}const lines=entries.map(([id,q])=>{const p=products.find(x=>x.id===+id);return p.uc+" UC × "+q+" = "+fmt(p.price*q)});const total=entries.reduce((s,[id,q])=>s+products.find(x=>x.id===+id).price*q,0);const msg="طلب جديد من BXSTORE\\nالاسم: "+document.getElementById("name").value+"\\nالتواصل: "+document.getElementById("contact").value+"\\n"+lines.join("\\n")+"\\nالمجموع: "+fmt(total)+"\\nPlayer ID / ملاحظات: "+document.getElementById("player").value;out.innerHTML="";const h=document.createElement("b");h.textContent="رسالة الطلب جاهزة";const t=document.createElement("textarea");t.rows=7;t.readOnly=true;t.value=msg;const copy=document.createElement("button");copy.type="button";copy.className="btn";copy.textContent="نسخ الرسالة";copy.onclick=async()=>{try{await navigator.clipboard.writeText(msg);copy.textContent="تم النسخ ✓"}catch{t.select();document.execCommand("copy");copy.textContent="انسخ النص المحدد"}};out.append(h,t,copy)});
+document.getElementById("year").textContent=new Date().getFullYear();draw();
+</script></body></html>
